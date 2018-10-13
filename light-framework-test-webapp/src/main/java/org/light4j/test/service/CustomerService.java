@@ -1,6 +1,7 @@
 package org.light4j.test.service;
 
 import org.light4j.framework.annotation.Service;
+import org.light4j.framework.annotation.Transaction;
 import org.light4j.framework.helper.DatabaseHelper;
 import org.light4j.test.model.Customer;
 
@@ -26,13 +27,14 @@ public class CustomerService {
         return DatabaseHelper.queryEntityList(Customer.class, sql);
     }
 
-//    /**
-//     * 获取客户
-//     */
-//    public Customer getCustomer(long id) {
-//        String sql = "SELECT * FROM customer WHERE id = ?";
-//        return DatabaseHelper.queryEntity(Customer.class, sql, id);
-//    }
+    /**
+     * 获取客户
+     */
+    @Transaction
+    public Customer getCustomer(long id) {
+        String sql = "SELECT * FROM customer WHERE id = ?";
+        return DatabaseHelper.queryEntity(Customer.class, sql, id);
+    }
 //
 //    /**
 //     * 创建客户
