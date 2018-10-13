@@ -8,7 +8,7 @@ import java.lang.reflect.Method;
 /**
  * 切面代理
  *
- * @author huangyong
+ * @author weimiantong
  * @since 1.0.0
  */
 public abstract class AspectProxy implements Proxy {

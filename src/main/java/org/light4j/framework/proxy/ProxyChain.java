@@ -9,7 +9,7 @@ import java.util.List;
 /**
  * 代理链
  *
- * @author huangyong
+ * @author weimiantong
  * @since 1.0.0
  */
 public class ProxyChain {

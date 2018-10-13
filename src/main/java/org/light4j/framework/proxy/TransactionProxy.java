@@ -10,7 +10,7 @@ import java.lang.reflect.Method;
 /**
  * 事务代理
  *
- * @author huangyong
+ * @author weimiantong
  * @since 1.0.0
  */
 public class TransactionProxy implements Proxy {

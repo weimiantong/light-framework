@@ -3,7 +3,7 @@ package org.light4j.framework.proxy;
 /**
  * 代理接口
  *
- * @author huangyong
+ * @author weimiantong
  * @since 1.0.0
  */
 public interface Proxy {

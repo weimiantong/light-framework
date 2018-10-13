@@ -10,7 +10,7 @@ import java.util.List;
 /**
  * 代理管理器
  *
- * @author huangyong
+ * @author weimiantong
  * @since 1.0.0
  */
 public class ProxyManager {

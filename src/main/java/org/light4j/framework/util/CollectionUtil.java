@@ -10,9 +10,10 @@ import java.util.Map;
  * 集合工具类
  *
  * @author weimiantong
- * @date 18/7/15
+ * @since 1.0.0
  */
-public class CollectionUtil {
+public final class CollectionUtil {
+
     /**
      * 判断 Collection 是否为空
      */
@@ -40,5 +41,4 @@ public class CollectionUtil {
     public static boolean isNotEmpty(Map<?, ?> map) {
         return !isEmpty(map);
     }
-
 }

@@ -4,11 +4,15 @@ package org.light4j.test.controller;
 import org.light4j.framework.annotation.Action;
 import org.light4j.framework.annotation.Controller;
 import org.light4j.framework.annotation.Inject;
+import org.light4j.framework.bean.Data;
+import org.light4j.framework.bean.FileParam;
+import org.light4j.framework.bean.Param;
 import org.light4j.framework.bean.View;
 import org.light4j.test.model.Customer;
 import org.light4j.test.service.CustomerService;
 
 import java.util.List;
+import java.util.Map;
 
 /**
  * 处理客户管理相关请求
@@ -38,23 +42,24 @@ public class CustomerController {
 //        return new View("customer_show.jsp").addModel("customer", customer);
 //    }
 //
-//    /**
-//     * 进入 创建客户 界面
-//     */
-//    @Action("get:/customer_create")
-//    public View create(Param param) {
-//        return new View("customer_create.jsp");
-//    }
-//
-//    /**
-//     * 处理 创建客户 请求
-//     */
-//    @Action("post:/customer_create")
-//    public Data createSubmit(Param param) {
-//        Map<String, Object> fieldMap = param.getFieldMap();
-//        boolean result = customerService.createCustomer(fieldMap);
-//        return new Data(result);
-//    }
+    /**
+     * 进入 创建客户 界面
+     */
+    @Action("get:/customer_create")
+    public View create(Param param) {
+        return new View("customer_create.jsp");
+    }
+
+    /**
+     * 处理 创建客户 请求
+     */
+    @Action("post:/customer_create")
+    public Data createSubmit(Param param) {
+        Map<String, Object> fieldMap = param.getFieldMap();
+        FileParam fileParam =  param.getFile("photo");
+        boolean result = customerService.createCustomer(fieldMap, fileParam);
+        return new Data(result);
+    }
 //
 //    /**
 //     * 进入 编辑客户 界面

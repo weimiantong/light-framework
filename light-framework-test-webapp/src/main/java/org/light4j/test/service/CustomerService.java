@@ -2,10 +2,13 @@ package org.light4j.test.service;
 
 import org.light4j.framework.annotation.Service;
 import org.light4j.framework.annotation.Transaction;
+import org.light4j.framework.bean.FileParam;
 import org.light4j.framework.helper.DatabaseHelper;
+import org.light4j.framework.helper.UploadHelper;
 import org.light4j.test.model.Customer;
 
 import java.util.List;
+import java.util.Map;
 
 /**
  * 提供客户数据服务
@@ -23,25 +26,28 @@ public class CustomerService {
         customer.setEmail("wmt@123");
         customer.setId(1);
         customer.setName("wmt");
-//        return Arrays.asList(customer);
         return DatabaseHelper.queryEntityList(Customer.class, sql);
     }
 
     /**
      * 获取客户
      */
-    @Transaction
     public Customer getCustomer(long id) {
         String sql = "SELECT * FROM customer WHERE id = ?";
         return DatabaseHelper.queryEntity(Customer.class, sql, id);
     }
-//
-//    /**
-//     * 创建客户
-//     */
-//    public boolean createCustomer(Map<String, Object> fieldMap) {
-//        return DatabaseHelper.insertEntity(Customer.class, fieldMap);
-//    }
+
+    /**
+     * 创建客户
+     */
+    @Transaction
+    public boolean createCustomer(Map<String, Object> fieldMap, FileParam fileParam) {
+        boolean result = DatabaseHelper.insertEntity(Customer.class, fieldMap);
+        if (result) {
+            UploadHelper.uploadFile("/tmp/upload/", fileParam);
+        }
+        return result;
+    }
 //
 //    /**
 //     * 更新客户

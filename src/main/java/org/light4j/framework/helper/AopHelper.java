@@ -15,7 +15,7 @@ import java.util.*;
 /**
  * 方法拦截助手类
  *
- * @author huangyong
+ * @author weimiantong
  * @since 1.0.0
  */
 public final class AopHelper {
