@@ -1,6 +1,7 @@
 package org.light4j.framework.bean;
 
 import org.light4j.framework.util.CastUtil;
+import org.light4j.framework.util.CollectionUtil;
 
 import java.util.Map;
 
@@ -27,5 +28,9 @@ public class Param {
 
     public Map<String,Object> getFieldMap() {
         return null;
+    }
+
+    public boolean isEmpty() {
+        return CollectionUtil.isEmpty(paramMap);
     }
 }
