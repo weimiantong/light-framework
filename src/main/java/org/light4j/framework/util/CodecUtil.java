@@ -1,9 +1,12 @@
 package org.light4j.framework.util;
 
+import org.apache.commons.codec.digest.DigestUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
 import java.net.URLDecoder;
 import java.net.URLEncoder;
+
 
 /**
  *编码与解码操作工具类
@@ -46,7 +49,7 @@ public class CodecUtil {
     /**
      * MD5 加密
      */
-//    public static String md5(String source) {
-//        return DigestUtils.md5Hex(source);
-//    }
+    public static String md5(String source) {
+        return DigestUtils.md5Hex(source);
+    }
 }
