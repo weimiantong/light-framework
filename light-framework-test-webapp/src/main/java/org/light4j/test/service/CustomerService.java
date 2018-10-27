@@ -21,11 +21,6 @@ public class CustomerService {
      */
     public List<Customer> getCustomerList() {
         String sql = "SELECT * FROM customer";
-        Customer customer = new Customer();
-        customer.setContact("1359888");
-        customer.setEmail("wmt@123");
-        customer.setId(1);
-        customer.setName("wmt");
         return DatabaseHelper.queryEntityList(Customer.class, sql);
     }
 
@@ -48,19 +43,20 @@ public class CustomerService {
         }
         return result;
     }
-//
-//    /**
-//     * 更新客户
-//     */
-//    public boolean updateCustomer(long id, Map<String, Object> fieldMap) {
-//        return DatabaseHelper.updateEntity(Customer.class, id, fieldMap);
-//    }
-//
-//    /**
-//     * 删除客户
-//     */
-//    public boolean deleteCustomer(long id) {
-//        return DatabaseHelper.deleteEntity(Customer.class, id);
-//    }
 
+    /**
+     * 更新客户
+     */
+    @Transaction
+    public boolean updateCustomer(long id, Map<String, Object> fieldMap) {
+        return DatabaseHelper.updateEntity(Customer.class, id, fieldMap);
+    }
+
+    /**
+     * 删除客户
+     */
+    @Transaction
+    public boolean deleteCustomer(long id) {
+        return DatabaseHelper.deleteEntity(Customer.class, id);
+    }
 }
